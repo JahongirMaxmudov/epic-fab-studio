@@ -386,16 +386,55 @@ class DatabaseSeeder extends Seeder
             'published_at' => now()->subDays(5),
         ]);
 
-        // 6. Settings
+        // 6. Settings & Creator Business Card Profile
         $settings = [
-            'site_name' => 'EPIC FAB STUDIO',
-            'site_tagline' => 'Премиальные плагины, шейдеры и ассеты для Unreal Engine 5 на Fab.com',
-            'hero_title' => 'ИНСТРУМЕНТЫ НОВОГО ПОКОЛЕНИЯ ДЛЯ UNREAL ENGINE 5',
-            'hero_subtitle' => 'Авторские C++ плагины, фотореалистичные шейдеры и Nanite ассеты. Официально на Fab.com Marketplace.',
+            'site_name' => 'JAHONGIR DEV | FAB STUDIO',
+            'site_tagline' => 'Личный сайт-визитка & Портфолио плагинов для Unreal Engine 5 на Fab.com',
+            'author_name' => 'Jahongir Maxmudov',
+            'author_status' => 'Unreal Engine 5 C++ Developer & Technical Artist',
+            'hero_badge' => 'GameDev & C++ Creator',
+            'author_avatar' => 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80',
+            'author_bio' => 'Привет! Я разработчик игровых механик, C++ плагинов и шейдеров для Unreal Engine 5. Здесь я делюсь своими проектами, официальными продуктами на Fab.com, обучающими роликами на YouTube и новостями разработки в Telegram-канале.',
+            'telegram_url' => 'https://t.me/epicfabstudio',
+            'youtube_url' => 'https://youtube.com/@epicfabstudio',
             'fab_store_url' => 'https://www.fab.com/sellers/EpicFabStudio',
             'discord_url' => 'https://discord.gg/epicfab',
-            'youtube_url' => 'https://youtube.com/@epicfabstudio',
+            'github_url' => 'https://github.com/JahongirMaxmudov',
             'contact_email' => 'support@epicfabstudio.dev',
+            'home_blocks' => json_encode([
+                [
+                    'type' => 'heading',
+                    'level' => 'h2',
+                    'badge' => 'YouTube & DevLog',
+                    'content' => 'Свежие видеоуроки и разборы на моем YouTube-канале',
+                ],
+                [
+                    'type' => 'text',
+                    'content' => '<p>Регулярно выпускаю подробные видеоуроки по C++ архитектуре в Unreal Engine 5, созданию кастомных графов Slate, шейдеров в Niagara и оптимизации Nanite для AAA-проектов. Подписывайтесь, чтобы первыми получать новые туториалы!</p>',
+                ],
+                [
+                    'type' => 'video',
+                    'url' => 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+                    'title' => 'Видеообзор: Интеграция C++ плагина диалогов в Unreal Engine 5.4',
+                ],
+                [
+                    'type' => 'heading',
+                    'level' => 'h2',
+                    'badge' => 'Telegram Community',
+                    'content' => 'Мой Telegram-канал — новости и закулисье разработки',
+                ],
+                [
+                    'type' => 'text',
+                    'content' => '<p>В Telegram я публикую анонсы новых плагинов до релиза на Fab.com, делюсь скриншотами текущих экспериментов (WIP), провожу опросы по фичам и лично отвечаю на вопросы разработчиков.</p>',
+                ],
+                [
+                    'type' => 'fab_button',
+                    'title' => 'Перейти в Telegram-канал @epicfabstudio',
+                    'url' => 'https://t.me/epicfabstudio',
+                    'price' => 'Бесплатный канал',
+                    'badge' => 'Live Updates',
+                ],
+            ]),
         ];
 
         foreach ($settings as $key => $value) {

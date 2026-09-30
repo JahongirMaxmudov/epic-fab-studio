@@ -1,94 +1,134 @@
 @extends('layouts.app')
 
-@section('title', \App\Models\Setting::get('site_name', 'Epic Fab Studio') . ' — Плагины и ассеты для Unreal Engine 5')
+@section('title', \App\Models\Setting::get('author_name', 'Jahongir Maxmudov') . ' — Сайт-визитка & Unreal Engine Fab.com Creator')
+@section('meta_description', \App\Models\Setting::get('author_bio'))
 
 @section('content')
-    <!-- Hero Section -->
-    <section class="relative pt-12 pb-20 md:pt-24 md:pb-32 overflow-hidden border-b border-white/5">
-        <!-- Radial Spotlight Glow -->
-        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-gradient-to-tr from-blue-600/20 via-cyan-500/15 to-purple-600/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <!-- CREATOR PROFILE / BUSINESS CARD HERO (САЙТ-ВИЗИТКА) -->
+    <section class="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden border-b border-white/5">
+        <!-- Radial Cyber Spotlight Glow -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[400px] bg-gradient-to-tr from-blue-600/20 via-cyan-500/15 to-purple-600/10 rounded-full blur-[130px] pointer-events-none"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             
-            <!-- Tech Badge -->
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-slate-300 mb-6 backdrop-blur-md shadow-lg">
-                <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-                <span class="font-tech text-cyan-300 uppercase tracking-widest text-[11px]">Unreal Engine 5.3 — 5.5 Production Ready</span>
-                <span class="text-slate-500">|</span>
-                <span class="text-slate-300">Официально на Fab.com</span>
-            </div>
+            <div class="rounded-3xl border border-white/10 bg-gradient-to-b from-[#11141e]/90 to-[#0a0c12]/90 backdrop-blur-2xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+                <!-- Background Accent Glow -->
+                <div class="absolute -right-16 -top-16 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-            <!-- Main Heading -->
-            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight font-tech uppercase max-w-5xl mx-auto leading-none">
-                {{ \App\Models\Setting::get('hero_title', 'ИНСТРУМЕНТЫ НОВОГО ПОКОЛЕНИЯ ДЛЯ UNREAL ENGINE 5') }}
-            </h1>
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+                    
+                    <!-- Creator Avatar -->
+                    <div class="relative flex-shrink-0 group">
+                        <div class="w-32 h-32 sm:w-36 sm:h-36 rounded-3xl p-[2px] bg-gradient-to-br from-blue-500 via-cyan-400 to-purple-500 shadow-xl shadow-blue-500/25">
+                            <img src="{{ \App\Models\Setting::get('author_avatar', 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80') }}" alt="{{ \App\Models\Setting::get('author_name', 'Creator') }}" class="w-full h-full object-cover rounded-[22px]">
+                        </div>
+                        <span class="absolute -bottom-2 -right-2 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider font-tech bg-emerald-500 text-black shadow-md flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-black animate-pulse"></span>
+                            Online
+                        </span>
+                    </div>
 
-            <!-- Subtitle -->
-            <p class="mt-6 text-lg sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal">
-                {{ \App\Models\Setting::get('hero_subtitle', 'Авторские C++ плагины, фотореалистичные шейдеры Niagara и Nanite 3D ассеты с полной оптимизацией под современные консоли и ПК.') }}
-            </p>
+                    <!-- Creator Bio Info -->
+                    <div class="space-y-4 text-center md:text-left flex-grow">
+                        
+                        <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                            <span class="px-3 py-1 rounded-full text-xs font-bold font-tech uppercase tracking-wider bg-blue-500/10 text-cyan-300 border border-blue-500/30">
+                                <i class="fa-solid fa-code text-[11px] mr-1"></i> {{ \App\Models\Setting::get('hero_badge', 'Unreal Engine 5 & Fab.com Creator') }}
+                            </span>
+                            <span class="px-3 py-1 rounded-full text-xs font-bold font-tech uppercase tracking-wider bg-purple-500/10 text-purple-300 border border-purple-500/30">
+                                C++ & Blueprint
+                            </span>
+                        </div>
 
-            <!-- CTA Buttons -->
-            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#catalog-tiles" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-500 shadow-xl shadow-blue-600/30 flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 text-base font-tech uppercase tracking-wider">
-                    <i class="fa-solid fa-shapes"></i>
-                    Исследовать разделы (Плитка)
-                </a>
+                        <div>
+                            <h1 class="text-3xl sm:text-5xl font-extrabold text-white font-tech uppercase tracking-tight">
+                                {{ \App\Models\Setting::get('author_name', 'Jahongir Maxmudov') }}
+                            </h1>
+                            <p class="text-sm sm:text-base font-semibold text-blue-400 font-tech mt-1 uppercase tracking-wider">
+                                {{ \App\Models\Setting::get('author_status', 'Unreal Engine 5 C++ Developer & Technical Artist') }}
+                            </p>
+                        </div>
 
-                <a href="{{ \App\Models\Setting::get('fab_store_url', 'https://www.fab.com') }}" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-slate-200 bg-[#0f1118] hover:bg-white/10 border border-white/10 hover:border-cyan-500/50 shadow-xl flex items-center justify-center gap-3 transition-all hover:scale-105 active:scale-95 text-base font-tech uppercase tracking-wider">
-                    <i class="fa-solid fa-store text-cyan-400"></i>
-                    Витрина на Fab.com
-                </a>
-            </div>
+                        <!-- Bio / Description -->
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl">
+                            {{ \App\Models\Setting::get('author_bio', 'Привет! Я разработчик игровых механик, C++ плагинов и шейдеров для Unreal Engine 5. Здесь я делюсь своими проектами, официальными продуктами на Fab.com, обучающими роликами на YouTube и новостями разработки в Telegram.') }}
+                        </p>
 
-            <!-- Key Feature Metrics Counter -->
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-10 border-t border-white/5">
-                <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
-                    <div class="text-3xl font-extrabold text-white font-tech">UE 5.5</div>
-                    <div class="text-xs text-slate-400 mt-1 uppercase font-semibold">Совместимость версий</div>
+                        <!-- Social Channels Buttons -->
+                        <div class="pt-4 flex flex-wrap items-center justify-center md:justify-start gap-3">
+                            
+                            @if(\App\Models\Setting::get('telegram_url'))
+                                <a href="{{ \App\Models\Setting::get('telegram_url') }}" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl font-bold text-xs uppercase font-tech tracking-wider text-white bg-sky-600 hover:bg-sky-500 shadow-md shadow-sky-600/30 flex items-center gap-2 transition-all hover:scale-105 active:scale-95">
+                                    <i class="fa-brands fa-telegram text-base"></i> Telegram Канал
+                                </a>
+                            @endif
+
+                            @if(\App\Models\Setting::get('youtube_url'))
+                                <a href="{{ \App\Models\Setting::get('youtube_url') }}" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl font-bold text-xs uppercase font-tech tracking-wider text-white bg-red-600 hover:bg-red-500 shadow-md shadow-red-600/30 flex items-center gap-2 transition-all hover:scale-105 active:scale-95">
+                                    <i class="fa-brands fa-youtube text-base"></i> YouTube
+                                </a>
+                            @endif
+
+                            @if(\App\Models\Setting::get('fab_store_url'))
+                                <a href="{{ \App\Models\Setting::get('fab_store_url') }}" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl font-bold text-xs uppercase font-tech tracking-wider text-white bg-blue-600 hover:bg-blue-500 shadow-md shadow-blue-600/30 flex items-center gap-2 transition-all hover:scale-105 active:scale-95">
+                                    <i class="fa-solid fa-store text-sm text-cyan-300"></i> Мой Fab.com
+                                </a>
+                            @endif
+
+                            @if(\App\Models\Setting::get('github_url'))
+                                <a href="{{ \App\Models\Setting::get('github_url') }}" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2.5 rounded-xl font-bold text-xs uppercase font-tech tracking-wider text-slate-300 bg-white/5 hover:bg-white/10 hover:text-white border border-white/10 flex items-center gap-2 transition-all">
+                                    <i class="fa-brands fa-github text-base"></i> GitHub
+                                </a>
+                            @endif
+
+                            @if(\App\Models\Setting::get('discord_url'))
+                                <a href="{{ \App\Models\Setting::get('discord_url') }}" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2.5 rounded-xl font-bold text-xs uppercase font-tech tracking-wider text-indigo-300 bg-indigo-950/40 hover:bg-indigo-900/50 border border-indigo-500/30 flex items-center gap-2 transition-all">
+                                    <i class="fa-brands fa-discord text-base"></i> Discord
+                                </a>
+                            @endif
+
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
-                    <div class="text-3xl font-extrabold text-cyan-400 font-tech">100% C++</div>
-                    <div class="text-xs text-slate-400 mt-1 uppercase font-semibold">Исходный код включен</div>
-                </div>
-                <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
-                    <div class="text-3xl font-extrabold text-blue-400 font-tech">Nanite / Lumen</div>
-                    <div class="text-xs text-slate-400 mt-1 uppercase font-semibold">Next-Gen технологии</div>
-                </div>
-                <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/5">
-                    <div class="text-3xl font-extrabold text-amber-400 font-tech">5.0 ★</div>
-                    <div class="text-xs text-slate-400 mt-1 uppercase font-semibold">Рейтинг разработчиков</div>
-                </div>
+
             </div>
 
         </div>
     </section>
 
-    <!-- SECTION 1: THE TILE SYSTEM ("ПЛИТКА" LEVEL 1) -->
-    <section id="catalog-tiles" class="py-20 md:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+    <!-- CUSTOM HOMEPAGE MODULAR BLOCKS (EDITABLE FROM ADMIN HOMEPAGE BUILDER) -->
+    @if(!empty($homeBlocks) && count($homeBlocks) > 0)
+        <section class="py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <x-blocks.render :blocks="$homeBlocks" />
+        </section>
+    @endif
+
+    <!-- SECTION: THE TILE SYSTEM ("ПЛИТКА" - МОИ РАЗДЕЛЫ НА FAB.COM) -->
+    <section id="catalog-tiles" class="py-16 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative border-t border-white/5">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-wider font-tech mb-2">
-                    <i class="fa-solid fa-layer-group"></i> Уровень 1: Разделы
+                    <i class="fa-solid fa-shapes"></i> Плитка разделов
                 </div>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-white font-tech uppercase tracking-wide">
-                    КАТЕГОРИИ АССЕТОВ & РАЗДЕЛЫ
+                    МОИ РАЗДЕЛЫ НА FAB.COM
                 </h2>
-                <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-xl">
-                    Выберите плитку интересующей категории для перехода в каталог продуктов с фильтрацией по версиям движка и тегам.
+                <p class="text-slate-400 text-sm mt-1 max-w-xl">
+                    Выберите категорию, чтобы открыть плитку с плагинами, шейдерами или готовыми системами для Unreal Engine.
                 </p>
             </div>
             <div class="text-xs text-slate-500 font-mono">
-                Всего категорий: {{ $sections->count() }}
+                Разделов: {{ $sections->count() }}
             </div>
         </div>
 
-        <!-- The Section Tiles Grid -->
+        <!-- The Section Tiles Grid (Level 1) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             @foreach($sections as $sec)
                 <a href="{{ route('catalog.section', $sec->slug) }}" class="group relative rounded-2xl p-6 bg-gradient-to-b from-[#10131d] to-[#0a0c12] border border-white/10 hover:border-blue-500/60 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-xl hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-blue-500/10">
                     
-                    <!-- Decorative subtle accent background glow -->
                     <div class="absolute -right-8 -top-8 w-32 h-32 rounded-full blur-2xl opacity-10 group-hover:opacity-30 transition-opacity" style="background-color: {{ $sec->accent_color ?? '#007dfc' }};"></div>
 
                     <div>
@@ -117,7 +157,7 @@
                         </p>
                     </div>
 
-                    <!-- Footer of the Tile: Product count + Button -->
+                    <!-- Footer of the Tile -->
                     <div class="mt-8 pt-4 border-t border-white/5 flex items-center justify-between text-xs">
                         <span class="text-slate-400 font-medium flex items-center gap-1.5">
                             <i class="fa-solid fa-box-open text-blue-400"></i>
@@ -125,7 +165,7 @@
                         </span>
                         
                         <span class="font-bold text-blue-400 group-hover:text-cyan-300 flex items-center gap-1 transition-colors uppercase tracking-wider text-[11px]">
-                            Перейти
+                            Открыть
                             <i class="fa-solid fa-arrow-right text-[10px]"></i>
                         </span>
                     </div>
@@ -135,7 +175,7 @@
         </div>
     </section>
 
-    <!-- SECTION 2: FEATURED FAB.COM PRODUCTS SPOTLIGHT -->
+    <!-- SECTION: FEATURED FAB.COM PRODUCTS SPOTLIGHT -->
     <section class="py-16 bg-[#0a0c12]/60 border-y border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
@@ -144,10 +184,10 @@
                         <i class="fa-solid fa-fire"></i> Fab.com Витрина
                     </div>
                     <h2 class="text-3xl font-extrabold text-white font-tech uppercase tracking-wide">
-                        ПОПУЛЯРНЫЕ ПРОДУКТЫ & ПЛАГИНЫ
+                        ИЗБРАННЫЕ ПЛАГИНЫ & ПРОЕКТЫ
                     </h2>
                     <p class="text-slate-400 text-sm mt-1">
-                        Проверенные решения студии для ускорения производства ваших проектов в UE5.
+                        Мои авторские разработки, доступные для загрузки и использования в Unreal Engine 5.
                     </p>
                 </div>
             </div>
@@ -161,7 +201,6 @@
                         <a href="{{ route('catalog.product', ['section_slug' => $product->section->slug, 'product_slug' => $product->slug]) }}" class="relative aspect-video overflow-hidden bg-slate-900 block">
                             <img src="{{ $product->featured_image ?? 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80' }}" alt="{{ $product->title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
                             
-                            <!-- Badges over Image -->
                             <div class="absolute top-3 left-3 flex flex-wrap gap-1.5">
                                 <span class="px-2 py-0.5 rounded text-[10px] font-bold font-tech uppercase tracking-wider bg-black/75 backdrop-blur-md text-cyan-300 border border-cyan-500/30">
                                     {{ $product->section->title }}
@@ -224,23 +263,23 @@
         </div>
     </section>
 
-    <!-- SECTION 3: DEVLOG & NEWS UPDATES -->
+    <!-- SECTION: DEVLOG & NEWS UPDATES -->
     @if($latestNews->count() > 0)
         <section class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
                 <div>
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold uppercase tracking-wider font-tech mb-2">
-                        <i class="fa-solid fa-code-commit"></i> DevLog & Инсайты
+                        <i class="fa-solid fa-code-commit"></i> Блог & Новости
                     </div>
                     <h2 class="text-3xl font-extrabold text-white font-tech uppercase tracking-wide">
-                        ПОСЛЕДНИЕ СТАТЬИ И ОБНОВЛЕНИЯ
+                        ПОСЛЕДНИЕ СТАТЬИ И ДЕВЛОГИ
                     </h2>
                     <p class="text-slate-400 text-sm mt-1">
                         Новости о релизах плагинов, статьи по оптимизации шейдеров и технические заметки.
                     </p>
                 </div>
                 <a href="{{ route('news.index') }}" class="text-xs font-bold text-blue-400 hover:text-cyan-300 font-tech uppercase tracking-wider flex items-center gap-1">
-                    Все записи блога <i class="fa-solid fa-arrow-right"></i>
+                    Все статьи <i class="fa-solid fa-arrow-right"></i>
                 </a>
             </div>
 
@@ -271,7 +310,7 @@
                                 <span class="text-slate-500 font-mono">
                                     <i class="fa-regular fa-eye mr-1"></i> {{ $article->views_count }}
                                 </span>
-                                <a href="{{ route('news.show', $article->slug) }}" class="font-bold text-purple-400 group-hover:text-purple-300 flex items-center gap-1">
+                                <a href="{{ route('news.show', $article->slug) }}" class="font-bold text-purple-400 group-hover:text-purple-300 flex items-center gap-1 font-tech uppercase tracking-wider text-[11px]">
                                     Читать <i class="fa-solid fa-arrow-right text-[10px]"></i>
                                 </a>
                             </div>
@@ -281,28 +320,4 @@
             </div>
         </section>
     @endif
-
-    <!-- SECTION 4: FAB.COM ECOSYSTEM BANNER -->
-    <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="rounded-3xl border border-blue-500/20 bg-gradient-to-r from-blue-950/30 via-[#0e111a] to-blue-950/30 p-8 sm:p-12 relative overflow-hidden backdrop-blur-xl">
-            <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
-            <div class="max-w-2xl">
-                <span class="px-3 py-1 rounded text-xs font-bold font-tech uppercase tracking-wider bg-blue-500/20 text-cyan-300 border border-blue-500/30">
-                    Официальная страница на Fab.com
-                </span>
-                <h2 class="mt-4 text-2xl sm:text-4xl font-extrabold text-white font-tech uppercase tracking-tight">
-                    ПОЛУЧАЙТЕ АССЕТЫ НАПРЯМУЮ В EPIC GAMES LAUNCHER
-                </h2>
-                <p class="mt-3 text-sm text-slate-300 leading-relaxed">
-                    Все наши разработки публикуются на Fab.com с мгновенной привязкой к вашей библиотеке Epic Games, автоматическими обновлениями и гарантией совместимости с последними версиями Unreal Engine.
-                </p>
-                <div class="mt-8 flex flex-wrap gap-4">
-                    <a href="{{ \App\Models\Setting::get('fab_store_url', 'https://www.fab.com') }}" target="_blank" class="px-6 py-3.5 rounded-xl font-bold text-white bg-blue-600 hover:bg-blue-500 shadow-lg shadow-blue-600/30 flex items-center gap-2 text-sm uppercase font-tech tracking-wider transition-all hover:scale-105">
-                        <i class="fa-solid fa-store"></i> Перейти на Fab.com
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 @endsection

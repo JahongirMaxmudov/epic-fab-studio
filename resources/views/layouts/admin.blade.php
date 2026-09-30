@@ -95,6 +95,11 @@
                     Дашборд
                 </a>
 
+                <a href="{{ route('admin.home_editor') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider font-tech transition-all {{ request()->routeIs('admin.home_editor*') ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30' : 'text-slate-400 hover:text-white hover:bg-white/5' }}">
+                    <i class="fa-solid fa-id-card text-sm w-5 text-cyan-400"></i>
+                    Главная (Визитка)
+                </a>
+
                 <a href="{{ route('admin.sections.index') }}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider font-tech transition-all {{ request()->routeIs('admin.sections.*') ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30' : 'text-slate-400 hover:text-white hover:bg-white/5' }}">
                     <i class="fa-solid fa-layer-group text-sm w-5"></i>
                     Разделы (Плитка)

@@ -115,4 +115,30 @@ class AdminBuilderTest extends TestCase
             'is_approved' => true,
         ]);
     }
+
+    public function test_admin_can_access_and_update_home_editor(): void
+    {
+        $response = $this->actingAs($this->admin)->get(route('admin.home_editor'));
+        $response->assertStatus(200);
+        $response->assertSee('Визитка');
+        $response->assertSee('Конструктор');
+
+        $updateResponse = $this->actingAs($this->admin)->post(route('admin.home_editor.update'), [
+            'author_name' => 'Custom Developer',
+            'author_status' => 'Lead UE5 Systems Architect',
+            'author_bio' => 'Мое новое био и ссылки на проекты',
+            'telegram_url' => 'https://t.me/mychannel',
+            'youtube_url' => 'https://youtube.com/@mychannel',
+            'fab_store_url' => 'https://www.fab.com/sellers/myprofile',
+            'blocks_json' => json_encode([
+                [
+                    'type' => 'heading',
+                    'level' => 'h2',
+                    'content' => 'Приветствие на главной',
+                ],
+            ]),
+        ]);
+
+        $updateResponse->assertSessionHas('success');
+    }
 }

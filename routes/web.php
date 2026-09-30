@@ -67,7 +67,10 @@ Route::prefix('admin')->name('admin.')->middleware(['admin'])->group(function ()
     Route::post('/comments/{id}/approve', [AdminCommentController::class, 'approve'])->name('comments.approve');
     Route::delete('/comments/{id}', [AdminCommentController::class, 'destroy'])->name('comments.destroy');
 
-    // Site Settings
+    // Site Settings & Homepage Visiter Editor
+    Route::get('/home-editor', [AdminSettingController::class, 'homeEditor'])->name('home_editor');
+    Route::post('/home-editor', [AdminSettingController::class, 'updateHomeEditor'])->name('home_editor.update');
+
     Route::get('/settings', [AdminSettingController::class, 'index'])->name('settings.index');
     Route::post('/settings', [AdminSettingController::class, 'update'])->name('settings.update');
 });

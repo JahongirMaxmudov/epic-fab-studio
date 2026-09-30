@@ -14,9 +14,9 @@ class ClientPortalTest extends TestCase
         $response = $this->get(route('home'));
 
         $response->assertStatus(200);
-        $response->assertSee('EPIC FAB STUDIO');
-        $response->assertSee('КАТЕГОРИИ АССЕТОВ');
-        $response->assertSee('ПОПУЛЯРНЫЕ ПРОДУКТЫ');
+        $response->assertSee('FAB STUDIO');
+        $response->assertSee('Jahongir Maxmudov');
+        $response->assertSee('МОИ РАЗДЕЛЫ НА FAB.COM');
     }
 
     public function test_section_catalog_level_2_page(): void
